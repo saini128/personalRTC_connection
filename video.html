@@ -1,0 +1,31 @@
+<html>
+
+  <head>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+
+  <body>
+    <div style="display:block;justify-content:space-around;margin:0px">
+
+      <div class="primary-video" id="remoteVideo"></div>
+      <div class="secondary-video" id="localVideo"></div>
+
+    </div>
+
+    <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
+    <script src="./video.js"></script>
+    <script>
+      // Retrieve values from the query string
+      const urlParams = new URLSearchParams(window.location.search);
+      const callerName = urlParams.get('callerName');
+      const receiverName = urlParams.get('receiverName');
+
+      // Initiate the peer and make the call with retrieved names
+      init(callerName);
+      makeCall(receiverName);
+    </script>
+
+
+  </body>
+
+</html>
